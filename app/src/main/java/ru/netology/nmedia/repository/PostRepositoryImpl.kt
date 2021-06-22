@@ -82,7 +82,7 @@ class PostRepositoryImpl : PostRepository {
                 override fun onResponse(call: Call, response: Response) {
                     val body = response.body?.string() ?: throw RuntimeException("boyd is null")
                     try {
-                        callback.onSuccess(gson.fromJson(body, typeToken.type))
+                        callback.onSuccess(gson.fromJson(body, likeTypeToken.type))
                     } catch (e: Exception) {
                         callback.onError(e)
                     }
